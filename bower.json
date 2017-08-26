@@ -1,0 +1,21 @@
+{
+  "name": "jeff_boilerplate_bs3_sass",
+  "description": "my starter pack for bootstrap-sass",
+  "main": "index.js",
+  "authors": [
+    "Jeffrey Balmes <jefbalmes@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "^3.3.7",
+    "font-awesome": "^4.7.0"
+  }
+}
