@@ -8,10 +8,6 @@
   },
   "author": "Jeffrey Balmes",
   "license": "ISC",
-  "dependencies": {
-    "bootstrap-sass": "^3.3.7",
-    "fontawesome": "^4.7.2"
-  },
   "devDependencies": {
     "browser-sync": "^2.18.13",
     "gulp": "^3.9.1",
