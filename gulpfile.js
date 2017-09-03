@@ -1,6 +1,8 @@
 const gulp        = require('gulp');
 const browserSync = require('browser-sync').create();
 const sass        = require('gulp-sass');
+const plumber     = require('gulp-plumber');
+const notify      = require('gulp-notify');
 
 // Watch Sass & Serve
 gulp.task('serve', ['sass'], function() {
@@ -17,6 +19,7 @@ gulp.task('serve', ['sass'], function() {
 // Compile Sass & Inject Into Browser
 gulp.task('sass', function() {
     return gulp.src(['src/scss/*.scss'])
+        .pipe(plumbError())
         .pipe(sass())
         .pipe(gulp.dest("src/css"))
         .pipe(browserSync.stream());
@@ -47,3 +50,18 @@ gulp.task('fa', function() {
 });
 
 gulp.task('default', ['js','serve', 'fa', 'fonts']);
+
+function plumbError() {
+  return plumber({
+    errorHandler: function(err) {
+      notify.onError({
+        templateOptions: {
+          date: new Date()
+        },
+        title: "Gulp error in " + err.plugin,
+        message:  err.formatted
+      })(err);
+      this.emit('end');
+    }
+  })
+}
